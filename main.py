@@ -1,5 +1,6 @@
 from llama_cpp import Llama
 import json
+import sys
 
 llm = Llama(model_path="/home/spv/llama.cpp/ggml-vicuna13b-q2_k.bin", verbose=False, n_threads=4)
 
@@ -17,8 +18,8 @@ def send_message(s):
 	history += "\n"
 
 while True:
-	print(history)
 	s = input("> ")
+	print("@", end="", flush=True)
 	for tok in send_message(s):
 		history += tok
 		print(tok, end="", flush=True)
