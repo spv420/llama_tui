@@ -7,8 +7,8 @@ import os
 model_path = os.environ.get("MODEL")
 
 if not model_path:
-        print("$ source.env")
-        sys.exit(0)
+	print("$ source.env")
+	sys.exit(0)
 
 llm = Llama(model_path=model_path, verbose=False, n_threads=4)
 
