@@ -2,8 +2,15 @@ from llama_cpp import Llama
 from rich import print
 import json
 import sys
+import os
 
-llm = Llama(model_path="/home/spv/llama_tui/wizardvicuna-7b-q2_K.bin", verbose=False, n_threads=4)
+model_path = os.environ.get("MODEL")
+
+if not model_path:
+        print("$ source.env")
+        sys.exit(0)
+
+llm = Llama(model_path=model_path, verbose=False, n_threads=4)
 
 history = ""
 
